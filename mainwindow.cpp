@@ -7,7 +7,12 @@ MainWindow::MainWindow(QWidget *parent)
     addToolBar(toolBar);
 
     centralWidget = new QWidget(this);
+
     hlayout = new QHBoxLayout(centralWidget);
+    vlayout = new QVBoxLayout;
+    metalayout = new QHBoxLayout;
+    btnlayout = new QHBoxLayout;
+
     centralWidget->setLayout(hlayout);
 
     setCentralWidget(centralWidget);
@@ -20,6 +25,12 @@ MainWindow::MainWindow(QWidget *parent)
     rightLayoutWidget->setStyleSheet("background-color: green;");
     hlayout->addWidget(rightLayoutWidget);
 
+    rightLayoutWidget->setLayout(vlayout);
+
+    vlayout->addLayout(metalayout);
+    vlayout->addLayout(btnlayout);
+
+    QPushButton *btn_prev = new QPushButton;
 }
 
 MainWindow::~MainWindow() {

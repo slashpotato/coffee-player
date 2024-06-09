@@ -6,6 +6,8 @@
 
 #include <QWidget>
 #include <QHBoxLayout>
+#include <QVBoxLayout>
+#include <QPushButton>
 
 class MainWindow : public QMainWindow
 {
@@ -19,7 +21,8 @@ public:
 private:
     ToolBar *toolBar;
     QWidget *centralWidget;
-    QHBoxLayout *hlayout;
+    QHBoxLayout *hlayout, *metalayout, *btnlayout;
+    QVBoxLayout *vlayout;
 
 };
 
