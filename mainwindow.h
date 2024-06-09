@@ -7,7 +7,9 @@
 #include <QWidget>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QGridLayout>
 #include <QPushButton>
+#include <QLabel>
 
 class MainWindow : public QMainWindow
 {
@@ -20,9 +22,12 @@ public:
 
 private:
     ToolBar *toolBar;
-    QWidget *centralWidget;
-    QHBoxLayout *hlayout, *metalayout, *btnlayout;
-    QVBoxLayout *vlayout;
+    QWidget *centralWidget, *listWidget;
+    QHBoxLayout *btnlayout;
+    QVBoxLayout *vlayout, *metalayout;
+    QGridLayout *glayout;
+    QPushButton *btn_pause, *btn_prev, *btn_next;
+    QLabel *track_name, *track_author;
 
 };
 

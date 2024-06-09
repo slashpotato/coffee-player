@@ -6,20 +6,19 @@ ToolBar::ToolBar(QWidget *parent) : QToolBar(parent) {
 }
 
 void ToolBar::createActions() {
-    act_file = new QAction(tr("File"), this);
-    act_view = new QAction(tr("View"), this);
+    act_file = new QAction(QIcon::fromTheme("fileopen"), tr("File"), this);
+    act_view = new QAction(QIcon::fromTheme("playlist-symbolic"), tr("View Playlist"), this);
 
     addAction(act_file);
     addAction(act_view);
 
     setMovable(false);
 
-    // Connect actions to slots if necessary
     connect(act_file, &QAction::triggered, this, [](){
-        // Your code here
+
     });
 
     connect(act_view, &QAction::triggered, this, [](){
-        // Your code here
+
     });
 }
