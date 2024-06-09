@@ -1,17 +1,26 @@
 #include "mainwindow.h"
 #include <QIcon>
+#include <QFont>
+#include <QAction>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), toolBar(new ToolBar(this)) {
 
-    setCentralWidget(new QWidget(this));  // Placeholder for your central widget
+    setCentralWidget(new QWidget(this));
     addToolBar(toolBar);
+
+    QFont fbig;
+    QFont fsmall;
+
+    fbig.setPointSize(24);
+    fsmall.setPointSize(14);
 
     centralWidget = new QWidget(this);
 
     glayout = new QGridLayout(centralWidget);
     vlayout = new QVBoxLayout;
     metalayout = new QVBoxLayout;
+    listlayout = new QVBoxLayout;
     btnlayout = new QHBoxLayout;
 
     centralWidget->setLayout(glayout);
@@ -19,17 +28,16 @@ MainWindow::MainWindow(QWidget *parent)
     setCentralWidget(centralWidget);
 
     listWidget = new QWidget();
-    listWidget->setStyleSheet("background-color: blue;");
     glayout->addWidget(listWidget, 0, 0);
 
-    listWidget->setHidden(false);
+    listWidget->setHidden(true);
+    connect(toolBar->getActView(), &QAction::triggered, this, &MainWindow::toggleListWidgetVisibility);
 
     QWidget *leftLayoutWidget = new QWidget();
     leftLayoutWidget->setStyleSheet("background-color: red;");
     glayout->addWidget(leftLayoutWidget, 0, 1);
 
     QWidget *rightLayoutWidget = new QWidget();
-    //rightLayoutWidget->setStyleSheet("background-color: green;");
     glayout->addWidget(rightLayoutWidget, 0, 2);
 
     rightLayoutWidget->setLayout(vlayout);
@@ -40,11 +48,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     track_author = new QLabel;
     track_author->setText("slashpotato");
-    track_name->setStyleSheet("font-size: 16px;");
+    track_author->setFont(fsmall);
 
     track_name = new QLabel;
     track_name->setText("patatiota");
-    track_name->setStyleSheet("font-size: 20px;");
+    track_name->setFont(fbig);
 
     metalayout->addWidget(track_author);
     metalayout->addWidget(track_name);
@@ -64,7 +72,16 @@ MainWindow::MainWindow(QWidget *parent)
     btnlayout->addWidget(btn_prev);
     btnlayout->addWidget(btn_pause);
     btnlayout->addWidget(btn_next);
+
+    leftLayoutWidget->setLayout(listlayout);
+
+    track_list = new QScrollArea;
+    listlayout->addWidget(track_list);
 }
 
 MainWindow::~MainWindow() {
+}
+
+void MainWindow::toggleListWidgetVisibility() {
+    listWidget->setHidden(!listWidget->isHidden());
 }

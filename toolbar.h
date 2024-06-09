@@ -10,6 +10,8 @@ class ToolBar : public QToolBar {
 public:
     explicit ToolBar(QWidget *parent = nullptr);
 
+    QAction* getActView() const;
+
 private:
     void createActions();
 

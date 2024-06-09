@@ -22,3 +22,7 @@ void ToolBar::createActions() {
 
     });
 }
+
+QAction* ToolBar::getActView() const {
+    return act_view;
+}
