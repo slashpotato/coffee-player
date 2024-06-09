@@ -2,4 +2,4 @@
 
 ./update.sh &> /dev/null
 ./build.sh &> /dev/null
-./potatoMusic
+./mutato
