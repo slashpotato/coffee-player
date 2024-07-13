@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 
-QString version = "0.0.1";
+QString version = "0.0.2";
 
 #include <QApplication>
 #include <QLocale>
@@ -29,6 +29,8 @@ int main(int argc, char *argv[])
     }
 
     MainWindow window;
+    window.setMinimumHeight(350);
+    window.setMinimumWidth(500);
     window.show();
 
     return app.exec();
