@@ -5,7 +5,7 @@ git fetch &> /dev/null
 if git status | grep 'behind' > /dev/null; then
   echo "Update found."
   git pull &> /dev/null && echo "Successfully updated."
-  if [ -f $PWD/mutato ]; then
+  if [ -f $PWD/coffee-player ]; then
     echo "Binary found and will be re-built."
     echo ""
     ./build.sh

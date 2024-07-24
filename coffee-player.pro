@@ -20,7 +20,7 @@ HEADERS += \
     toolbar.h
 
 TRANSLATIONS += \
-    mutato_en_US.ts
+    coffee-player_en_US.ts
 CONFIG += lrelease
 CONFIG += embed_translations
 
