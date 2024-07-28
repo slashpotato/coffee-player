@@ -71,7 +71,7 @@ CMakeLists.txt.user*
 # --------
 *.dll
 *.exe
-mutato
+coffee-player
 
 build/
 qmake_qmake_qm_files.qrc
