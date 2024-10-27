@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=coffee-player
+Comment=coffee-player
+Exec=/opt/coffee-player/bin/coffee-player
+Type=Application
+StartupNotify=false
+Keywords=coffee-player;
+Terminal=false
+Categories=AudioVideo;Player;
+Icon=audio-headphones

@@ -5,4 +5,5 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-make uninstall --jobs=$(grep -c ^processor /proc/cpuinfo)
+make uninstall --jobs=$(nproc)
+rm -rf /opt/coffee-player
